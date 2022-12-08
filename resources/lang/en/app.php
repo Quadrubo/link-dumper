@@ -22,13 +22,13 @@ return [
             ],
 
             'created_at' => [
-                'label' => 'Erstellt am',
+                'label' => 'Created at',
                 'helper' => '',
                 'hint' => '',
             ],
 
             'updated_at' => [
-                'label' => 'Verändert am',
+                'label' => 'Updated at',
                 'helper' => '',
                 'hint' => '',
             ],

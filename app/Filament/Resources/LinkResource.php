@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Component;
 
 class LinkResource extends Resource
 {
@@ -19,20 +20,58 @@ class LinkResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-link';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->localize('app.models.link.attributes.title'),
-                Forms\Components\TextInput::make('url')
-                    ->required()
-                    ->maxLength(2048)
-                    ->localize('app.models.link.attributes.url'),
+                Forms\Components\Group::make()
+                    ->schema([
+                        Forms\Components\Section::make(__('app.filament.forms.sections.general_information.label'))
+                            ->schema([
+                                Forms\Components\TextInput::make('title')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->localize('app.models.link.attributes.title'),
+                                Forms\Components\TextInput::make('url')
+                                    ->required()
+                                    ->maxLength(2048)
+                                    ->localize('app.models.link.attributes.url'),
+                            ])
+                            ->columns([
+                                'default' => 1,
+                                'sm' => 2,
+                            ]),
+                    ])
+                    ->columnSpan([
+                        'default' => 1,
+                        'sm' => fn (Component $livewire): int => $livewire instanceof Pages\CreateLink ? 3 : 2,
+                    ]),
+                Forms\Components\Group::make()
+                    ->hiddenOn('create')
+                    ->schema([
+                        Forms\Components\Section::make(__('app.filament.forms.sections.metadata.label'))
+                        ->schema([
+                                Forms\Components\DateTimePicker::make('created_at')
+                                    ->disabled()
+                                    ->dehydrated(false)
+                                    ->displayFormat('d.m.Y H:i:s')
+                                    ->localize('app.general.attributes.created_at'),
+                                Forms\Components\DateTimePicker::make('updated_at')
+                                    ->disabled()
+                                    ->dehydrated(false)
+                                    ->displayFormat('d.m.Y H:i:s')
+                                    ->localize('app.general.attributes.updated_at'),
+                            ])
+                            ->columns([
+                                'default' => 1,
+                            ]),
+                    ]),
+            ])->columns([
+                'default' => 1,
+                'sm' => 3,
+                'lg' => null,
             ]);
     }
 
