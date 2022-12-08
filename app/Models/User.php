@@ -63,10 +63,14 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 
     public function canAccessFilament(): bool
     {
+        if (! $this->hasVerifiedEmail()) {
+            return false;
+        }
+
         if (App::environment(['local', 'staging'])) {
             return $this->email === 'admin@admin.admin';
         }
 
-        return false;
+        return false; // TODO spatie permissions
     }
 }
