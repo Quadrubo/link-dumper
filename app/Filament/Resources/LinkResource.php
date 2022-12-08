@@ -28,11 +28,11 @@ class LinkResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255)
-                    ->localize('app.link.attributes.title'),
+                    ->localize('app.models.link.attributes.title'),
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->maxLength(2048)
-                    ->localize('app.link.attributes.url'),
+                    ->localize('app.models.link.attributes.url'),
             ]);
     }
 
@@ -43,15 +43,15 @@ class LinkResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->sortable()
                     ->searchable()
-                    ->localize('lara.general.attributes.id', helper: false, hint: false),
+                    ->localize('app.general.attributes.id', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
                     ->searchable()
-                    ->localize('app.link.attributes.title', helper: false, hint: false),
+                    ->localize('app.models.link.attributes.title', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('url')
                     ->sortable()
                     ->searchable()
-                    ->localize('app.link.attributes.url', helper: false, hint: false),
+                    ->localize('app.models.link.attributes.url', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

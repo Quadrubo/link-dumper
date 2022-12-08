@@ -1,0 +1,251 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Language Lines
+|--------------------------------------------------------------------------
+|
+| The following language lines are used for the Application.
+|
+*/
+
+return [
+
+    'general' => [
+
+        'attributes' => [
+
+            'id' => [
+                'label' => 'ID',
+                'helper' => '',
+                'hint' => '',
+            ],
+
+            'created_at' => [
+                'label' => 'Erstellt am',
+                'helper' => '',
+                'hint' => '',
+            ],
+
+            'updated_at' => [
+                'label' => 'Verändert am',
+                'helper' => '',
+                'hint' => '',
+            ],
+
+        ],
+
+    ],
+
+    'models' => [
+
+        'link' => [
+            'label' => 'Link',
+            'plural_label' => 'Links',
+            'navigation_group' => 'General',
+
+            'attributes' => [
+
+                'title' => [
+                    'label' => 'Title',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+                'url' => [
+                    'label' => 'URL',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+        ],
+
+        'user' => [
+
+            'label' => 'User',
+            'plural_label' => 'Users',
+            'navigation_group' => 'Authorization',
+
+            'attributes' => [
+
+                'email' => [
+                    'label' => 'Email',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+                'email_verified_at' => [
+                    'label' => 'Email verified at',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+                'password' => [
+                    'label' => 'Password',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+                'name' => [
+                    'label' => 'Name',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+            'relations' => [
+
+                'roles' => [
+                    'label' => 'Roles',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+        ],
+
+        'permission' => [
+
+            'label' => 'Permission',
+            'plural_label' => 'Permissions',
+            'navigation_group' => 'Authorization',
+
+            'attributes' => [
+
+                'guard_name' => [
+                    'label' => 'Guard name',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+            'relations' => [
+
+                'roles' => [
+                    'label' => 'Roles',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+        ],
+
+        'role' => [
+
+            'label' => 'Role',
+            'plural_label' => 'Roles',
+            'navigation_group' => 'Authorization',
+
+            'attributes' => [
+
+                'guard_name' => [
+                    'label' => 'Guard name',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+            'relations' => [
+
+                'permissions' => [
+                    'label' => 'Permissions',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
+        ],
+
+    ],
+
+    'filament' => [
+
+        'navigation_groups' => [
+
+            'content' => [
+                'label' => 'Content',
+            ],
+
+            'authorization' => [
+                'label' => 'Authorization',
+            ],
+
+        ],
+
+        'forms' => [
+
+            'actions' => [
+
+                'create_and_back' => [
+                    'label' => 'Create & back',
+                ],
+
+                'save_and_back' => [
+                    'label' => 'Save & back',
+                ],
+
+            ],
+
+            'sections' => [
+
+                'authorization' => [
+                    'label' => 'Authorization',
+                ],
+
+                'metadata' => [
+                    'label' => 'Metadata',
+                ],
+
+                'general_information' => [
+                    'label' => 'General information',
+                ],
+
+                'data' => [
+                    'label' => 'Data',
+                ],
+
+                'statistics' => [
+                    'label' => 'Statistics',
+                ],
+
+                'additional_information' => [
+                    'label' => 'Additional informationen',
+                ],
+
+            ],
+
+        ],
+
+        'tables' => [
+
+            'filters' => [
+
+                'verified' => [
+                    'label' => 'Verified',
+                    'placeholder' => 'All',
+                    'true_label' => 'Verified',
+                    'false_label' => 'Unverified',
+                ],
+
+                'show' => [
+                    'label' => 'Show',
+                    'placeholder' => 'All',
+                    'true_label' => 'Is showing',
+                    'false_label' => 'Is hidden',
+                ],
+
+            ],
+
+        ],
+
+    ],
+
+];
