@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
             $table->string('url', 2048); // Official max length of an URL
             $table->timestamps();
         });

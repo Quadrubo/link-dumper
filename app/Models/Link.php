@@ -10,4 +10,14 @@ class Link extends Model
 {
     use HasFactory;
     use HasTags;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'title',
+        'url',
+    ];
 }
