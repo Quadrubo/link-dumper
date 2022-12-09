@@ -36,9 +36,9 @@ const submit = () => {
     form.post(route('two-factor.login'));
 };
 </script>
-
+$t('
 <template>
-    <Head title="Two-factor Confirmation" />
+    <Head :title="$t('app.jetstream.Two-factor Confirmation')" />
 
     <AuthenticationCard>
         <template #logo>

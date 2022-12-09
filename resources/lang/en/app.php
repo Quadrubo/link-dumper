@@ -11,6 +11,14 @@
 
 return [
 
+    'jetstream' => [
+
+        'Forgot Password' => 'Forgot Password',
+        'Two-factor Confirmation' => 'Two-factor Confirmation',
+        'Email Verification' => 'Email Verification',
+
+    ],
+
     'general' => [
 
         'attributes' => [

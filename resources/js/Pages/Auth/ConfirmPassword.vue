@@ -26,7 +26,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Secure Area" />
+    <Head :title="$t('Secure Area')" />
 
     <AuthenticationCard>
         <template #logo>
