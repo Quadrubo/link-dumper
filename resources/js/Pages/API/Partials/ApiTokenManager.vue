@@ -81,7 +81,7 @@ const deleteApiToken = () => {
             </template>
 
             <template #description>
-                API tokens allow third-party services to authenticate with our application on your behalf.
+                {{ $t('API tokens allow third-party services to authenticate with our application on your behalf.') }}
             </template>
 
             <template #form>
