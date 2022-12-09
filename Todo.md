@@ -3,7 +3,6 @@
 ## In Production
 
 - Change PasswordValidationRules
-- add the `php artisan passport:keys` command to the deployment [Reference](https://laravel.com/docs/9.x/passport#deploying-passport)
 
 ## Development
 
