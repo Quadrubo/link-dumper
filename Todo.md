@@ -13,12 +13,5 @@
 ### Translation
 - Think about the `php artisan lang:update` command from https://publisher.laravel-lang.com/using/update.html, when should it run?
 - Add translation for frontend https://kazupon.github.io/vue-i18n/ or https://github.com/GENL/matice#installation https://github.com/laravel/jetstream/pull/560
-- Add: `module: {
-        rules: [
-            {
-                resourceQuery: /blockType=i18n/,
-                type: 'javascript/auto',
-                loader: '@intlify/vue-i18n-loader',
-            },
-        ],
-    },` to vite.config.js
+- Fix Privacy Policy Translation https://github.com/xiCO2k/laravel-vue-i18n/issues/86
+- Translate all `<Head title=""></Head>` Elements

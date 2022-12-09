@@ -1,27 +1,18 @@
 <script setup>
-import { ref, reactive, nextTick } from 'vue';
+import { ref, reactive, nextTick, onMounted } from 'vue';
 import DialogModal from './DialogModal.vue';
 import InputError from './InputError.vue';
 import PrimaryButton from './PrimaryButton.vue';
 import SecondaryButton from './SecondaryButton.vue';
 import TextInput from './TextInput.vue';
+import { wTrans, trans } from 'laravel-vue-i18n';
+import { computed } from '@vue/reactivity';
 
 const emit = defineEmits(['confirmed']);
 
-defineProps({
-    title: {
-        type: String,
-        default: () => { $t('Confirm Password') },
-    },
-    content: {
-        type: String,
-        default: () => { $t('For your security, please confirm your password to continue.') },
-    },
-    button: {
-        type: String,
-        default: () => { $t('Confirm') },
-    },
-});
+let title = ref(computed(() => trans('Confirm Password')));
+let content = ref(computed(() => trans('For your security, please confirm your password to continue.')));
+let button = ref(computed(() => trans('Confirm')));
 
 const confirmingPassword = ref(false);
 
