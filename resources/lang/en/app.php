@@ -29,6 +29,12 @@ return [
                 'hint' => '',
             ],
 
+            'name' => [
+                'label' => 'Name',
+                'helper' => '',
+                'hint' => '',
+            ],
+
             'created_at' => [
                 'label' => 'Created at',
                 'helper' => '',
@@ -110,6 +116,17 @@ return [
                     'label' => 'Roles',
                     'helper' => '',
                     'hint' => '',
+                ],
+
+            ],
+
+            'filters' => [
+
+                'verified' => [
+                    'label' => 'Verified',
+                    'placeholder' => 'All',
+                    'true_label' => 'Verified',
+                    'false_label' => 'Unverified',
                 ],
 
             ],
@@ -253,6 +270,13 @@ return [
             ],
 
         ],
+
+    ],
+
+    'other' => [
+
+        'yes' => 'Yes',
+        'no' => 'No',
 
     ],
 

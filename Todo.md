@@ -6,7 +6,7 @@
 
 ## Development
 
-- Add Resources for User, Role and Permission
+- Make Frontend Interface for Links
 
 ### Translation
 - Think about the `php artisan lang:update` command from https://publisher.laravel-lang.com/using/update.html, when should it run?
