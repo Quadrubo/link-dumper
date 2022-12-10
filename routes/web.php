@@ -39,3 +39,13 @@ Route::middleware([
             'index',
         ]);
 });
+
+
+/*Route::view('login', 'login');
+Route::post('login', function($request) {
+    if (auth()->guard()->attempt($request->only('email', 'password'))) {
+        return redirect()->intended();
+    }
+
+    throw new \Exception('There was some error while trying to log you in');
+})->name('passlogin');*/
