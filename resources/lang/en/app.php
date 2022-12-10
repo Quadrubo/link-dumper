@@ -56,7 +56,7 @@ return [
         'link' => [
             'label' => 'Link',
             'plural_label' => 'Links',
-            'navigation_group' => 'General',
+            'navigation_group' => 'Content',
 
             'attributes' => [
 
@@ -126,17 +126,6 @@ return [
                     'label' => 'Roles',
                     'helper' => '',
                     'hint' => '',
-                ],
-
-            ],
-
-            'filters' => [
-
-                'verified' => [
-                    'label' => 'Verified',
-                    'placeholder' => 'All',
-                    'true_label' => 'Verified',
-                    'false_label' => 'Unverified',
                 ],
 
             ],
@@ -252,7 +241,7 @@ return [
                 ],
 
                 'additional_information' => [
-                    'label' => 'Additional informationen',
+                    'label' => 'Additional information',
                 ],
 
             ],

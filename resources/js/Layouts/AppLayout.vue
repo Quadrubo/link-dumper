@@ -52,6 +52,9 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     {{ $t('Dashboard') }}
                                 </NavLink>
+                                <NavLink :href="route('links.index')" :active="route().current('links.index')">
+                                    {{ $t('app.models.link.plural_label') }}
+                                </NavLink>
                             </div>
                         </div>
 
@@ -210,6 +213,9 @@ const logout = () => {
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             {{ $t('Dashboard') }}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('links.index')" :active="route().current('links.index')">
+                            {{ $t('Links') }}
                         </ResponsiveNavLink>
                     </div>
 

@@ -10,6 +10,7 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { i18nVue } from 'laravel-vue-i18n';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const initialPage = JSON.parse(app.dataset.page);
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -19,6 +20,8 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(i18nVue, {
+                lang: 'de',
+                fallbackLang: 'en',
                 resolve: async lang => {
                     const langs = import.meta.glob('../lang/*.json');
                     return await langs[`../lang/${lang}.json`]();
