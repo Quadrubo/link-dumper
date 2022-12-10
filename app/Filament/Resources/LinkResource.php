@@ -5,10 +5,12 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\LinkResource\Pages;
 use App\Models\Link;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\SpatieTagsColumn;
 use Livewire\Component;
 
 class LinkResource extends Resource
@@ -35,6 +37,13 @@ class LinkResource extends Resource
                                     ->required()
                                     ->maxLength(2048)
                                     ->localize('app.models.link.attributes.url'),
+                                SpatieTagsInput::make('tags')
+                                    ->type('categories')
+                                    ->columnSpan([
+                                        'default' => 1,
+                                        'sm' => 2,
+                                    ])
+                                    ->localize('app.models.link.relations.tags'),
                             ])
                             ->columns([
                                 'default' => 1,
@@ -88,6 +97,9 @@ class LinkResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->localize('app.models.link.attributes.url', helper: false, hint: false),
+                SpatieTagsColumn::make('tags')
+                    ->type('categories')
+                    ->localize('app.models.link.relations.tags', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

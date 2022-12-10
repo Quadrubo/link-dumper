@@ -74,6 +74,16 @@ return [
 
             ],
 
+            'relations' => [
+
+                'tags' => [
+                    'label' => 'Tags',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+            ],
+
         ],
 
         'user' => [
