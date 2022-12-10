@@ -1,9 +1,35 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import TextInput from '@/Components/TextInput.vue';
+import Select from '@/Components/Select.vue';
+import { ref, watch } from 'vue';
+import { Inertia } from '@inertiajs/inertia';
+import debounce from 'lodash/debounce';
 
-defineProps({
+let props = defineProps({
     links: Object,
+    filters: Object,
+    tags: Object,
+});
+
+let titleFilter = ref(props.filters.title);
+let tagsFilter = ref(props.filters.tags);
+
+// watch, watches the ref and executes the throttle function everytime title changes
+// debounce only makes the function execute once, after the value (300ms) has passed
+watch(titleFilter, debounce(function (value) { 
+    console.log('triggered: ' + value);
+    Inertia.get('/links', { title: value }, {
+        preserveState: true,
+        replace: true, // replace the search history so there is no history entry for each keystroke
+    });
+}, 300));
+
+watch(tagsFilter, function (value) {
+    Inertia.get('/links', { tags: value }, {
+        preserveState: true,
+        replace: true, // replace the search history so there is no history entry for each keystroke
+    });
 });
 </script>
 
@@ -19,32 +45,42 @@ defineProps({
 
             <!-- Filters -->
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> 
+                <div class="bg-white p-2 overflow-hidden shadow-xl rounded-lg"> 
+ 
+                    <div class="flex flex-row justify-between">
 
-                    <div class="bg-red-500">
-                        
-                        <div class="flex flex-row justify-between">
+                        <div>
+                            <p>Site Filter</p>
+                        </div>
 
-                            <div>
-                                <p>Tag Filter</p>
-                            </div>
+                        <div>
+                            <p>Author Filter</p>
+                        </div>
 
-                            <div>
-                                <p>Tag Search</p>
-                            </div>
+                        <div>
+                            <p>Tag Filter</p>
+                        </div>
 
-                            <div>
-                                <p>Title Search</p>
-                            </div>
-
-                            <TextInput
-                                id="password"
-                                type="password"
-                                class="mt-1 block w-full"
+                        <div>
+                            <Select
+                                v-model="tagsFilter"
+                                class="w-full"
                                 required
-                                autocomplete="current-password"
-                            />
+                            >
+                                <option value="">-</option>
+                                <option v-for="tag, tag_key in tags" :key="tag_key" :value="tag">{{ tag }}</option>
+                            </Select>
+                        </div>
 
+                        <div>
+                            <TextInput
+                                v-model="titleFilter"
+                                class="w-full"
+                                type="text"
+                                required
+                                placeholder="Title..."
+                                autocomplete="off"
+                            />
                         </div>
 
                     </div>
