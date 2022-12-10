@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class DevelopmentSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -19,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleHasPermissionsSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ModelHasRolesSeeder::class);
+
+        $this->call(LinkSeeder::class);
     }
 }
