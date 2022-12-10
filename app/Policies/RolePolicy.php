@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Link;
+use Spatie\Permission\Models\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class LinkPolicy
+class RolePolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class LinkPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_link');
+        return $user->can('view_any_role');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Link  $link
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Link $link)
+    public function view(User $user, Role $role)
     {
-        return $user->can('view_link');
+        return $user->can('view_role');
     }
 
     /**
@@ -41,31 +41,31 @@ class LinkPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_link');
+        return $user->can('create_role');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Link  $link
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Link $link)
+    public function update(User $user, Role $role)
     {
-        return $user->can('update_link');
+        return $user->can('update_role');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Link  $link
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Link $link)
+    public function delete(User $user, Role $role)
     {
-        return $user->can('delete_link');
+        return $user->can('delete_role');
     }
 
     /**
@@ -76,19 +76,19 @@ class LinkPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_link');
+        return $user->can('delete_any_role');
     }
 
     /**
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Link  $link
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Link $link)
+    public function forceDelete(User $user, Role $role)
     {
-        return $user->can('force_delete_link');
+        return $user->can('{{ ForceDelete }}');
     }
 
     /**
@@ -99,19 +99,19 @@ class LinkPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_link');
+        return $user->can('{{ ForceDeleteAny }}');
     }
 
     /**
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Link  $link
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Link $link)
+    public function restore(User $user, Role $role)
     {
-        return $user->can('restore_link');
+        return $user->can('{{ Restore }}');
     }
 
     /**
@@ -122,19 +122,19 @@ class LinkPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_link');
+        return $user->can('{{ RestoreAny }}');
     }
 
     /**
      * Determine whether the user can replicate.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Link  $link
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Link $link)
+    public function replicate(User $user, Role $role)
     {
-        return $user->can('replicate_link');
+        return $user->can('{{ Replicate }}');
     }
 
     /**
@@ -145,7 +145,7 @@ class LinkPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_link');
+        return $user->can('{{ Reorder }}');
     }
 
 }
