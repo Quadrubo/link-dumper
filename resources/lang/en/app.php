@@ -50,7 +50,7 @@ return [
         'link' => [
             'label' => 'Link',
             'plural_label' => 'Links',
-            'navigation_group' => 'Content',
+            'navigation_group' => 'General',
 
             'attributes' => [
 
