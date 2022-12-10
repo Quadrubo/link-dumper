@@ -34,11 +34,11 @@ class RolesRelationManager extends RelationManager
         return $table
             ->columns([
                 Tables\Columns\BadgeColumn::make('id')
-                    ->label(__('lara.role.attributes.id')),
+                    ->localize('app.general.attributes.id', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('name')
-                    ->label(__('lara.role.attributes.name')),
+                    ->localize('app.general.attributes.name', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('guard_name')
-                    ->label(__('lara.role.attributes.guard_name')),
+                    ->localize('app.models.role.attributes.guard_name', helper: false, hint: false),
             ])
             ->filters([
                 //
@@ -49,10 +49,12 @@ class RolesRelationManager extends RelationManager
                     ->preloadRecordSelect(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\DetachAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\DetachAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -62,12 +64,12 @@ class RolesRelationManager extends RelationManager
 
     public static function getModelLabel(): string
     {
-        return __('lara.models.role.label');
+        return __('app.models.role.label');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('lara.models.role.plural_label');
+        return __('app.models.role.plural_label');
     }
 
     protected function canAssociate(): bool

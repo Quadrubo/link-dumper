@@ -49,14 +49,16 @@ class RolesRelationManager extends RelationManager
                     ->preloadRecordSelect(),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\DetachAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\DetachAction::make(),
+                ]),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\DetachBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
