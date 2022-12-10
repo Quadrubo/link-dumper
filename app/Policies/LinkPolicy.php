@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Link;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LinkPolicy
@@ -147,5 +147,4 @@ class LinkPolicy
     {
         return $user->can('reorder_link');
     }
-
 }
