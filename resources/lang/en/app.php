@@ -66,15 +66,35 @@ return [
                     'hint' => '',
                 ],
 
+                'user_id' => [
+                    'label' => 'User',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
                 'url' => [
                     'label' => 'URL',
                     'helper' => '',
                     'hint' => '',
                 ],
 
-            ],
+                'website' => [
+                    'label' => 'Website',
+                    'helper' => '',
+                    'hint' => '',
+                ],
 
-            'relations' => [
+                'author' => [
+                    'label' => 'Author',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+                'posted_at' => [
+                    'label' => 'Posted at',
+                    'helper' => '',
+                    'hint' => '',
+                ],
 
                 'tags' => [
                     'label' => 'Tags',
@@ -124,6 +144,12 @@ return [
 
                 'roles' => [
                     'label' => 'Roles',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
+                'links' => [
+                    'label' => 'Links',
                     'helper' => '',
                     'hint' => '',
                 ],

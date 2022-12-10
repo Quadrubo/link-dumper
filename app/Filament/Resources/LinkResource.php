@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\LinkResource\Pages;
 use App\Models\Link;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Resources\Form;
@@ -11,6 +12,8 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\SpatieTagsColumn;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class LinkResource extends Resource
@@ -33,17 +36,32 @@ class LinkResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->localize('app.models.link.attributes.title'),
+                                Forms\Components\Select::make('user_id')
+                                    ->relationship('user', 'email')
+                                    ->required()
+                                    ->searchable()
+                                    ->getSearchResultsUsing(fn (string $search) => User::where('name', 'like', "%{$search}%")->limit(50)->pluck('name', 'id'))
+                                    ->getOptionLabelUsing(fn ($value): ?string => User::find($value)?->name)
+                                    ->localize('app.models.link.attributes.user_id'),
                                 Forms\Components\TextInput::make('url')
                                     ->required()
                                     ->maxLength(2048)
                                     ->localize('app.models.link.attributes.url'),
-                                SpatieTagsInput::make('tags')
-                                    ->type('categories')
+                                Forms\Components\TextInput::make('website')
+                                    ->maxLength(255)
+                                    ->localize('app.models.link.attributes.website'),
+                                Forms\Components\TextInput::make('author')
+                                    ->maxLength(255)
+                                    ->localize('app.models.link.attributes.author'),
+                                Forms\Components\DatePicker::make('posted_at')
+                                    ->displayFormat('d.m.Y')
+                                    ->localize('app.models.link.attributes.posted_at'),
+                                Forms\Components\TagsInput::make('tags')
                                     ->columnSpan([
                                         'default' => 1,
                                         'sm' => 2,
                                     ])
-                                    ->localize('app.models.link.relations.tags'),
+                                    ->localize('app.models.link.attributes.tags'),
                             ])
                             ->columns([
                                 'default' => 1,
@@ -97,9 +115,8 @@ class LinkResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->localize('app.models.link.attributes.url', helper: false, hint: false),
-                SpatieTagsColumn::make('tags')
-                    ->type('categories')
-                    ->localize('app.models.link.relations.tags', helper: false, hint: false),
+                Tables\Columns\TagsColumn::make('tags')
+                    ->localize('app.models.link.attributes.tags', helper: false, hint: false),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Tags\HasTags;
 
 class Link extends Model
 {
     use HasFactory;
-    use HasTags;
 
     /**
      * The attributes that are mass assignable.
@@ -19,5 +17,19 @@ class Link extends Model
     protected $fillable = [
         'title',
         'url',
+        'user_id',
+        'website',
+        'posted_at',
+        'author',
+        'tags',
     ];
+
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

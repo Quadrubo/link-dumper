@@ -63,6 +63,11 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         'profile_photo_url',
     ];
 
+    public function links()
+    {
+        return $this->hasMany(Link::class);
+    }
+
     public function canAccessFilament(): bool
     {
         if (! $this->hasVerifiedEmail()) {

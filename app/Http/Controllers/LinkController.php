@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLinkRequest;
 use App\Http\Requests\UpdateLinkRequest;
 use App\Models\Link;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class LinkController extends Controller
 {
@@ -15,7 +17,11 @@ class LinkController extends Controller
      */
     public function index()
     {
-        //
+        $links = Auth::user()->links;
+
+        return Inertia::render('Links/Index', [
+            'links' => $links,
+        ]);
     }
 
     /**

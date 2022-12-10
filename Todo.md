@@ -7,6 +7,10 @@
 ## Development
 
 - Make Frontend Interface for Links
+  - Add Date to Link Card
+- Make User Select in LinkResource better
+- Add Image to Link (of article, look at Feeder for reference)
+
 
 ### Translation
 - Think about the `php artisan lang:update` command from https://publisher.laravel-lang.com/using/update.html, when should it run?

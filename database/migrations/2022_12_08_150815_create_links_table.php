@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('title', 255);
             $table->string('url', 2048); // Official max length of an URL
+            $table->string('website', 255)->nullable();
+            $table->string('author', 255)->nullable();
+            $table->date('posted_at')->nullable();
+            $table->json('tags')->nullable();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
