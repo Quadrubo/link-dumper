@@ -37,7 +37,7 @@ class VerifyUser extends Command
 
         if (! $user) {
             $this->error('Could not find the specified user. Please use the id or the email of the user.');
-            
+
             return Command::FAILURE;
         }
 

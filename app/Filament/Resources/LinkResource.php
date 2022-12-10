@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LinkResource\Pages;
-use App\Filament\Resources\LinkResource\RelationManagers;
 use App\Models\Link;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Livewire\Component;
 
 class LinkResource extends Resource
@@ -53,17 +50,17 @@ class LinkResource extends Resource
                     ->schema([
                         Forms\Components\Section::make(__('app.filament.forms.sections.metadata.label'))
                         ->schema([
-                                Forms\Components\DateTimePicker::make('created_at')
-                                    ->disabled()
-                                    ->dehydrated(false)
-                                    ->displayFormat('d.m.Y H:i:s')
-                                    ->localize('app.general.attributes.created_at'),
-                                Forms\Components\DateTimePicker::make('updated_at')
-                                    ->disabled()
-                                    ->dehydrated(false)
-                                    ->displayFormat('d.m.Y H:i:s')
-                                    ->localize('app.general.attributes.updated_at'),
-                            ])
+                            Forms\Components\DateTimePicker::make('created_at')
+                                ->disabled()
+                                ->dehydrated(false)
+                                ->displayFormat('d.m.Y H:i:s')
+                                ->localize('app.general.attributes.created_at'),
+                            Forms\Components\DateTimePicker::make('updated_at')
+                                ->disabled()
+                                ->dehydrated(false)
+                                ->displayFormat('d.m.Y H:i:s')
+                                ->localize('app.general.attributes.updated_at'),
+                        ])
                             ->columns([
                                 'default' => 1,
                             ]),
@@ -116,14 +113,14 @@ class LinkResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -132,8 +129,8 @@ class LinkResource extends Resource
             'view' => Pages\ViewLink::route('/{record}'),
             'edit' => Pages\EditLink::route('/{record}/edit'),
         ];
-    }   
-    
+    }
+
     public static function getModelLabel(): string
     {
         return __('app.models.link.label') !== 'app.models.link.label' ? __('app.models.link.label') : parent::getModelLabel();
