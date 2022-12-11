@@ -46,6 +46,10 @@ class LinkResource extends Resource
                                 Forms\Components\TextInput::make('url')
                                     ->required()
                                     ->maxLength(2048)
+                                    ->columnSpan([
+                                        'default' => 1,
+                                        'sm' => 2,
+                                    ])
                                     ->localize('app.models.link.attributes.url'),
                                 Forms\Components\TextInput::make('website')
                                     ->maxLength(255)
@@ -56,6 +60,9 @@ class LinkResource extends Resource
                                 Forms\Components\DatePicker::make('posted_at')
                                     ->displayFormat('d.m.Y')
                                     ->localize('app.models.link.attributes.posted_at'),
+                                Forms\Components\Toggle::make('done')
+                                    ->inline(false)
+                                    ->localize('app.models.link.attributes.done'),
                                 Forms\Components\TagsInput::make('tags')
                                     ->columnSpan([
                                         'default' => 1,

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreLinkRequest;
 use App\Http\Requests\UpdateLinkRequest;
 use App\Models\Link;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 

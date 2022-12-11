@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('posted_at')->nullable();
             $table->json('tags')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->boolean('done')->default(false);
             $table->timestamps();
         });
     }

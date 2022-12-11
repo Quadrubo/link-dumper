@@ -96,6 +96,12 @@ return [
                     'hint' => '',
                 ],
 
+                'done' => [
+                    'label' => 'Done',
+                    'helper' => '',
+                    'hint' => '',
+                ],
+
                 'tags' => [
                     'label' => 'Tags',
                     'helper' => '',

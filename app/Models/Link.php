@@ -22,6 +22,7 @@ class Link extends Model
         'posted_at',
         'author',
         'tags',
+        'done',
     ];
 
     protected $casts = [
