@@ -31,6 +31,10 @@ watch(tagsFilter, function (value) {
         replace: true, // replace the search history so there is no history entry for each keystroke
     });
 });
+
+const openLink = function (url) {
+    window.open(url, '_blank').focus();
+}
 </script>
 
 <template>
@@ -93,7 +97,7 @@ watch(tagsFilter, function (value) {
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
 
-                    <div class="bg-white overflow-hidden shadow-xl rounded-lg cursor-pointer" v-for="link, link_key in links" :key="link_key">
+                    <div class="bg-white overflow-hidden shadow-xl rounded-lg cursor-pointer" @click="openLink(link.url)" v-for="link, link_key in links" :key="link_key">
 
                         <img class="" src="https://laravelnews.s3.amazonaws.com/images/php-enum-helpers-featured.png?w=1366&h=692.22972972973&q=90&auto=format&fit=crop" alt="" srcset="">
 
