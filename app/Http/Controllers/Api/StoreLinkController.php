@@ -24,7 +24,7 @@ class StoreLinkController extends \App\Http\Controllers\Controller
         $validated = $request->validate([
             'url' => 'required|url|max:2048',
             'title' => 'required|max:255',
-            'tags' => 'required|array',
+            'tags' => 'array',
         ]);
 
         $validated['user_id'] = Auth::id();
